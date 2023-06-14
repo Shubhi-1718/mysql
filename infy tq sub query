@@ -1,0 +1,4 @@
+//61
+Select Prodid,Pdesc From Product where Prodid in 
+(Select Prodid From Saledetail group by prodid having Sum(Quantity)=
+(Select Min(Sum(Quantity)) From Saledetail group by Prodid));
